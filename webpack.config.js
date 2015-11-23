@@ -20,6 +20,9 @@ module.exports = {
     presets: ['es2015']
   },
   module: {
+    preLoaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader' }
+    ],
     loaders: [
       { test: /\.vue$/, loader: 'vue' },
       { test: /\.js$/, exclude: /node_modules\/(?!vue-desktop)/, loader: 'babel' },

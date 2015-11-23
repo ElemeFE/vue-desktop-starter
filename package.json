@@ -20,6 +20,8 @@
     "chai": "^3.3.0",
     "chai-as-promised": "^5.1.0",
     "css-loader": "^0.21.0",
+    "eslint": "^1.10.0",
+    "eslint-loader": "^1.1.1",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
     "highlight.js": "^8.9.1",
@@ -39,7 +41,7 @@
     "webpack-dev-server": "^1.12.0"
   },
   "scripts": {
-    "dev": "webpack-dev-server --inline --quiet --hot --port 9000",
+    "dev": "webpack-dev-server --inline --hot --port 9000",
     "watch": "webpack --progress --hide-modules --watch",
     "build": "NODE_ENV=production webpack --progress --hide-modules",
     "deploy": "NODE_ENV=production webpack --progress --hide-modules --output-public-path /dist/"
