@@ -1,0 +1,26 @@
+{
+  "ecmaFeatures": {
+   "blockBindings": true,
+   "forOf": true,
+   "modules": true
+  },
+  "globals": {
+    "document": true,
+    "console": true,
+    "setInterval": true,
+    "require": true,
+    "localStorage": true,
+    "export": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "semi": [2, "always"],
+    "no-console": 0,
+    "strict": 0
+  }
+}
