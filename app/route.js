@@ -4,5 +4,8 @@ export default {
   },
   '/page2': {
     component: require('./page2/index.vue')
-  }
+  },
+  '/icon': {
+    component: require('./icon/index.vue')
+  },
 };
