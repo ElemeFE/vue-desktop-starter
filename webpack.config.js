@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -35,6 +36,10 @@ module.exports = {
 
 if (isProduction) {
   module.exports.plugins = [
+    new HtmlWebpackPlugin({
+      filename: '../index.html',
+      template: './app/index.html'
+    }),
     new ExtractTextPlugin('[name].[contenthash:6].css'),
     new webpack.DefinePlugin({
       'process.env': {
@@ -50,6 +55,10 @@ if (isProduction) {
   ];
 } else {
   module.exports.plugins = [
+    new HtmlWebpackPlugin({
+      filename: '../index.html',
+      template: './app/index.html'
+    }),
     new ExtractTextPlugin('[name].css')
   ];
   module.exports.devtool = '#source-map'
