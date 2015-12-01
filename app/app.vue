@@ -97,7 +97,6 @@
           <ul class="demolist">
             <li><a v-link="{ path: '/page1' }">Page1</a></li>
             <li><a v-link="{ path: '/page2' }">Page2</a></li>
-            <li><a v-link="{ path: '/icon' }">Icon</a></li>
           </ul>
         </d-accordion-panel>
       </d-accordion>

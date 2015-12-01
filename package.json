@@ -5,9 +5,8 @@
   "main": "src/index.js",
   "private": true,
   "dependencies": {
-    "font-awesome": "^4.4.0",
     "vue": "^1.0.8",
-    "vue-desktop": "0.0.12",
+    "vue-desktop": "^0.0.18",
     "vue-i18n": "^2.2.0",
     "vue-resource": "^0.1.17",
     "vue-router": "^0.7.5"
@@ -43,7 +42,7 @@
     "webpack-dev-server": "^1.12.0"
   },
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --port 9000",
+    "dev": "webpack --progress --hide-modules --watch & webpack-dev-server --inline --content-base ./dist --history-api-fallback --hot --port 9000",
     "watch": "webpack --progress --hide-modules --watch",
     "build": "NODE_ENV=production webpack --progress --hide-modules",
     "deploy": "NODE_ENV=production webpack --progress --hide-modules --output-public-path /dist/"

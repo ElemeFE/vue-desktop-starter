@@ -4,8 +4,8 @@ Vue.use(VueRouter);
 Vue.use(require('vue-resource'));
 
 var router = new VueRouter({
-  hashbang: false
-  //,history: true
+  hashbang: false,
+  history: true
 });
 
 var initComponents = require('vue-desktop').initComponents;

@@ -3,6 +3,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var plugins = [
+  new HtmlWebpackPlugin({
+    filename: './index.html',
+    template: './app/index.html'
+  })
+];
+
 module.exports = {
   entry: {
     app: './app/index.js'
@@ -11,6 +18,9 @@ module.exports = {
     path: './dist',
     publicPath: '/dist/',
     filename: isProduction ? '[name].[chunkhash:6].js' : '[name].js'
+  },
+  devServer: {
+    stats: 'errors-only'
   },
   vue: {
     loaders: {
@@ -29,17 +39,14 @@ module.exports = {
       { test: /\.js$/, exclude: /node_modules\/(?!vue-desktop)/, loader: 'babel' },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css') },
       { test: /\.html$/, loader: 'html' },
-      { test: /\.(ttf|svg|woff2|woff|eot)$/, loader: 'url?limit=20000&name=[path][name].[hash:6].[ext]' }
+      { test: /\.(png|gif|jpg|ttf|svg|woff2|woff|eot)$/, loader: 'url?limit=20000&name=[path][name].[hash:6].[ext]' }
     ]
-  }
+  },
+  plugins: plugins
 };
 
 if (isProduction) {
-  module.exports.plugins = [
-    new HtmlWebpackPlugin({
-      filename: '../index.html',
-      template: './app/index.html'
-    }),
+  plugins.push.apply(plugins, [
     new ExtractTextPlugin('[name].[contenthash:6].css'),
     new webpack.DefinePlugin({
       'process.env': {
@@ -52,14 +59,10 @@ if (isProduction) {
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin()
-  ];
+  ]);
 } else {
-  module.exports.plugins = [
-    new HtmlWebpackPlugin({
-      filename: '../index.html',
-      template: './app/index.html'
-    }),
+  plugins.push.apply(plugins, [
     new ExtractTextPlugin('[name].css')
-  ];
+  ]);
   module.exports.devtool = '#source-map'
 }
