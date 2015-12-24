@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "vue": "^1.0.8",
-    "vue-desktop": "^0.0.18",
+    "vue-desktop": "^0.1.2",
     "vue-i18n": "^2.2.0",
     "vue-resource": "^0.1.17",
     "vue-router": "^0.7.5"

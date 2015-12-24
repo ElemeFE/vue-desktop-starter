@@ -8,8 +8,7 @@ var router = new VueRouter({
   history: true
 });
 
-var initComponents = require('vue-desktop').initComponents;
-initComponents(Vue);
+require('vue-desktop');
 
 import { default as routes } from './route';
 router.map(routes);
