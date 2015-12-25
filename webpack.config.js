@@ -19,6 +19,9 @@ module.exports = {
     publicPath: '/dist/',
     filename: isProduction ? '[name].[chunkhash:6].js' : '[name].js'
   },
+  stats: {
+    children: false
+  },
   devServer: {
     stats: 'errors-only'
   },
