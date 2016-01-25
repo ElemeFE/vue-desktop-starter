@@ -12,6 +12,9 @@ var plugins = [
 
 module.exports = {
   entry: {
+    vendor: [
+      'vue', 'vue-router', 'vue-resource'
+    ],
     app: './app/index.js'
   },
   output: {
@@ -42,8 +45,7 @@ module.exports = {
       { test: /\.js$/, exclude: /node_modules\/(?!vue-desktop)/, loader: 'babel' },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css') },
       { test: /\.html$/, loader: 'html' },
-      { test: /\.(ttf|woff2|woff|eot)$/, loader: 'url?limit=20000&name=[path][name].[hash:6].[ext]' },
-      { test: /\.(jpe?g|png|gif|svg)$/i, loaders: ['url?limit=20000&name=[path][name].[hash:6].[ext]', 'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'] }
+      { test: /\.(ttf|woff2|woff|eot|jpe?g|png|gif|svg)$/, loader: 'url?limit=20000&name=[path][name].[hash:6].[ext]' }
     ]
   },
   plugins: plugins

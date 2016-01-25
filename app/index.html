@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Your app title</title>
-  <link href="{%=o.htmlWebpackPlugin.files.css[0]%}" rel="stylesheet" />
+  <link href="{%= o.htmlWebpackPlugin.files.chunks.app.css[0] %}" rel="stylesheet">
 </head>
 <body>
 <app></app>
+<script src="{%=o.htmlWebpackPlugin.files.chunks.vendor.entry%}"></script>
 <script src="{%=o.htmlWebpackPlugin.files.chunks.app.entry%}"></script>
 </body>
 </html>
