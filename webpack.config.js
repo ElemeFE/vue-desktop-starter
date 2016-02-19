@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 var plugins = [
   new HtmlWebpackPlugin({
@@ -65,11 +66,13 @@ if (isProduction) {
       },
       sourceMap: false
     }),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new CommonsChunkPlugin("vendor", "[name].[hash:6].js")
   ]);
 } else {
   plugins.push.apply(plugins, [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new CommonsChunkPlugin("vendor", "[name].js")
   ]);
   module.exports.devtool = '#source-map'
 }
